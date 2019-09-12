@@ -1,12 +1,12 @@
 package org.example.foodsearch.demo.nutrients;
 
 import java.io.IOException;
-import java.util.stream.Stream;
+import java.util.Collection;
 
 import javax.validation.Valid;
 
-import org.example.foodsearch.demo.common.SearchFacet;
 import org.example.foodsearch.demo.nutrients.model.Nutrient;
+import org.example.foodsearch.demo.nutrients.model.NutrientQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/nutrients")
 public class NutrientController {
 
     private final Logger log = LoggerFactory.getLogger(NutrientController.class);
@@ -29,12 +29,11 @@ public class NutrientController {
     }
 
     @GetMapping
-    public Stream<Nutrient> getNutrients(@Valid SearchFacet searchFacet) throws IOException {
+    public Collection<Nutrient> getNutrients(@Valid NutrientQuery query) throws IOException {
 
         log.info("getNutrientsHit");
-        
-        return nutrientService.getNutrients(searchFacet);
 
+        return nutrientService.getNutrients(query);
 
     }
 }

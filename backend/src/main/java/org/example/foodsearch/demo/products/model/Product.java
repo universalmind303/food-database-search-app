@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "dataproduct")
+@Table(name = "products")
 public class Product implements Serializable {
     private static final long serialVersionUID = 602135135677077764L;
 
@@ -18,15 +18,15 @@ public class Product implements Serializable {
     @Column(name = "ndb_no")
     private String ndbNo;
 
-    @Column(name = "long_name")
-    private String longName;
+    @Column(name = "product_name")
+    private String productName;
 
     public Product() {
     }
 
-    public Product(Long id, String longName, String ndbNo) {
+    public Product(Long id, String productName, String ndbNo) {
         this.id = id;
-        this.longName = longName;
+        this.productName = productName;
         this.ndbNo = ndbNo;
     }
 
@@ -34,8 +34,8 @@ public class Product implements Serializable {
         return id;
     }
 
-    public String getLongName() {
-        return longName;
+    public String getProductName() {
+        return productName;
     }
 
     public String getNdbNo() {
@@ -44,6 +44,6 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", longName=" + longName + ", ndbNo=" + ndbNo + "]";
+        return "Product [id=" + id + ", productName=" + productName + ", ndbNo=" + ndbNo + "]";
     }
 }

@@ -7,10 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.vladmihalcea.hibernate.type.array.StringArrayType;
+
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+
 @Entity
-@Table(name = "dataproduct")
+@Table(name = "nutrients")
+@TypeDefs(@TypeDef(name = "string-array", typeClass = StringArrayType.class))
 public class Nutrient implements Serializable {
-    private static final long serialVersionUID = 602135135677077764L;
+
+    private static final long serialVersionUID = 602132935677077764L;
 
     @Id
     private Long id;
@@ -18,15 +26,20 @@ public class Nutrient implements Serializable {
     @Column(name = "ndb_no")
     private String ndbNo;
 
-    @Column(name = "long_name")
-    private String longName;
+    @Column(name = "ingredients")
+    private String ingredients;
+
+    @Column(name = "nutrients_list")
+    @Type(type = "string-array")
+    private String[] nutrientsList;
 
     public Nutrient() {
     }
 
-    public Nutrient(Long id, String longName, String ndbNo) {
+    public Nutrient(Long id, String ingredients, String[] nutrientsList, String ndbNo) {
         this.id = id;
-        this.longName = longName;
+        this.ingredients = ingredients;
+        this.nutrientsList = nutrientsList;
         this.ndbNo = ndbNo;
     }
 
@@ -34,8 +47,12 @@ public class Nutrient implements Serializable {
         return id;
     }
 
-    public String getLongName() {
-        return longName;
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public String[] getNutrientsList() {
+        return nutrientsList;
     }
 
     public String getNdbNo() {
@@ -44,6 +61,6 @@ public class Nutrient implements Serializable {
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", longName=" + longName + ", ndbNo=" + ndbNo + "]";
+        return "Nutrient [id=" + id + ", ingredients=" + ingredients + ", ndbNo=" + ndbNo + "]";
     }
 }
