@@ -1,1 +1,1 @@
-export const apiUrl = "http://localhost:8080/api";
+export const apiUrl = "http://ec2-3-89-152-210.compute-1.amazonaws.com:8080/api";
