@@ -7,6 +7,14 @@
 ### Notes
 To keep things a little easier to view. I put everything in this single repository, instead of creating individual repositories for each service as you would commonly see for larger production applications. 
 
+Some things I would have liked to do given more time. 
+- Add better linting to project
+- Add ci/cd pipeline
+- Add infrastructure jobs
+- Increase code coverage to 100% 
+- Extract properties files to AWS, or other external source. 
+- Add UI styling
+
 #### ETL
 
 I decided to clean up the data a little bit before ingesting it into the database. For this I used spark and databricks.
