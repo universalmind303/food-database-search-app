@@ -1,8 +1,8 @@
 import { apiUrl } from "../properties";
 
-export const getProducts = async (query: string) => {
+export const getNutrient = async (query: string) => {
   if (query !== "") {
-    const endPoint = `${apiUrl}/products?queryString=${query}`;
+    const endPoint = `${apiUrl}/nutrients?queryString=${query}`;
 
     const response: Response = await fetch(endPoint);
 
@@ -15,11 +15,11 @@ export const getProducts = async (query: string) => {
     const payload = await response.json();
 
     return {
-      products: payload,
+      nutrient: payload,
       status: response.status
     };
   }
   return {
-    products: []
+    nutrient: {}
   };
 };

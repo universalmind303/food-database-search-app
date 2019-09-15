@@ -5,7 +5,7 @@ import { setProducts } from "./action-creators";
 export type State = {
     productQuery: {
         productNameQuery: string
-    },
+    }
 };
 
 const mapStateToProps = ({productQuery}: State, ownProps: object) => ({

@@ -20,6 +20,6 @@ public class ProductService {
     }
 
     public Collection<Product> getProducts(ProductQuery query) {
-        return productRepository.findByProductNameContaining(query.getQueryString());
+        return productRepository.findFirst20ByProductNameContainingIgnoreCase(query.getQueryString());
     }
 }

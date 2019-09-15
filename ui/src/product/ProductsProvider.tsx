@@ -1,9 +1,11 @@
 import { Children, Component } from "react";
 import { connectProductsProvider } from "./ProductsProviderConnector";
-
+import { ProductsType } from "./model";
+import _ from 'lodash'
 export type ProductsProviderProps = {
     productNameQuery: string
     setProducts: Function,
+    products: ProductsType
 };
 
 
@@ -14,12 +16,17 @@ export class ProductsProviderBase extends Component<ProductsProviderProps> {
 
     public componentDidUpdate = () => {
         this.setProducts();
-    }
+    } 
 
     public render = () => Children.only(this.props.children);
 
     public setProducts = () => {
-        this.props.setProducts(this.props.productNameQuery);
+
+        const {setProducts, productNameQuery} = this.props;
+
+        const setProductsDebounced = _.debounce(setProducts as any, 100);
+
+        setProductsDebounced(productNameQuery)
     }
 }
 

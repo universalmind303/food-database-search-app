@@ -3,21 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8080",
-
   "dependencies": {
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",
     "@types/react": "16.9.2",
+    "@types/react-autosuggest": "^9.3.11",
+    "@types/react-bootstrap": "^0.32.19",
+    "@types/react-bootstrap-typeahead": "^3.4.5",
     "@types/react-dom": "16.9.0",
     "@types/react-redux": "^7.1.2",
     "@types/redux": "^3.6.0",
+    "bootstrap": "^4.3.1",
+    "lodash": "^4.17.15",
     "react": "^16.9.0",
+    "react-autosuggest": "^9.4.3",
+    "react-bootstrap": "^1.0.0-beta.12",
+    "react-bootstrap-typeahead": "^3.4.7",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "react-scripts": "3.1.1",
     "redux": "^4.0.4",
     "redux-tcomb": "^0.2.1",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.88.1",
     "tcomb": "^3.2.29",
     "typescript": "3.6.3"
   },
@@ -43,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.138",
     "redux-devtools-extension": "^2.13.8"
   }
 }
