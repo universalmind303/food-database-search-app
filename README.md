@@ -9,11 +9,31 @@ To keep things a little easier to view. I put everything in this single reposito
 
 Some things I would have liked to do given more time. 
 - Add better linting to project
+    - Update tslint rules
+    - Add Checkstlye or sonarlint
 - Add ci/cd pipeline
 - Add infrastructure jobs
 - Increase code coverage to 100% 
 - Extract properties files to AWS, or other external source. 
 - Add UI styling
+- Optimize database queries. 
+    - explained below. 
+
+- Add security to UI and backend, as it is currently wide open. 
+    - HTTPS
+    - Fine grain cors policy
+    - Oauth or other auth server
+    - more restrictive AWS security groups for the ec2 instance and RDS server. 
+
+An alternative approach i considered for the database. 
+Since this tool is only querying data, you could create a view of the data using something like elasticsearch. 
+This would give us much more powerful tools for searching the data (Autocomplete, faster responses, Addtional security, etc) while retaining the redundancy and safety of an ACID compliant database. 
+
+This would look something like the following
+
+source data -> spark transformations -> postgres/s3
+
+postgres/s3 -> additional spark transformations -> elasticsearch
 
 #### ETL
 
@@ -29,6 +49,7 @@ Steps performed:
 
 
 This allowed me to structure the data in a way that the application does not need to make mutiple endpoint calls, and the data is formatted in a nice consumable object
+
 
 #### Testing
 I wrote a few tests for the backend. I was a little unsure about testing the ETL and the UI as the challenge details only specified unit tests for the backend. In a normal production application, i would have strived for 100% coverage on all of this and would have most likely done TDD, and written the tests before the application code. If it is preferred, I could add tests for the frontend and ETL. 
