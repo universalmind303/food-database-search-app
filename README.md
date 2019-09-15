@@ -14,11 +14,12 @@ Some things I would have liked to do given more time.
 - Add ci/cd pipeline
 - Add infrastructure jobs
 - Increase code coverage to 100% 
-- Extract properties files to AWS, or other external source. 
+- Extract properties files to AWS
+    - Create properties files for each environment
+    - Store those in s3
 - Add UI styling
 - Optimize database queries. 
     - explained below. 
-
 - Add security to UI and backend, as it is currently wide open. 
     - HTTPS
     - Fine grain cors policy
