@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.Size;
 
 public class ProductQuery implements Serializable {
-    
+
     private static final long serialVersionUID = 6023005135677077764L;
 
     @Size(max = 200)
@@ -21,5 +21,9 @@ public class ProductQuery implements Serializable {
         return queryString;
     }
 
+    @Override
+    public String toString() {
+        return "ProductQuery [queryString=" + queryString + "]";
+    }
 
 }

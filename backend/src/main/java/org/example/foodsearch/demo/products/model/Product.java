@@ -60,15 +60,9 @@ public class Product implements Serializable {
         return productName;
     }
 
-    public String getNdbNo() {
-        return ndbNo;
-    }
-
     @Override
     public String toString() {
-        return "Product [id=" + id + ", ingredients=" + ingredients + ", ndbNo=" + ndbNo + ", nutrientsList="
+        return "Product [id=" + id + ", ingredients=" + ingredients + ", nutrientsList="
                 + Arrays.toString(nutrientsList) + ", productName=" + productName + "]";
     }
-
-
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectProduct } from './ProductConnector';
 import { ProductsType, } from './model';
-import { ListGroup, Accordion, Card } from 'react-bootstrap';
+import { ListGroup, Accordion, Card, Table, Container, Row, Col } from 'react-bootstrap';
 import { Nutrients } from '../nutrients/Nutrients';
 import { NutrientsProvider } from '../nutrients/NutrientsProvider';
 
@@ -17,15 +17,47 @@ const ProductBase: React.FC<ProductBaseProps> = (props: ProductBaseProps) => {
             <Card key={product.id}>
                <Accordion.Toggle
                   as={Card.Header}
-                  onClick={() => props.setNutrientQuery(product.ndbNo)}
                   eventKey={`${product.productName}`}>
                   {product.productName}
                </Accordion.Toggle>
                <Accordion.Collapse eventKey={`${product.productName}`}>
                   <Card.Body>
-                     <NutrientsProvider>
-                        <Nutrients />
-                     </NutrientsProvider>
+                     <Container>
+                        <Row>
+                           <Col>
+                              <Table size="sm">
+                                 <thead>
+                                    <tr>
+                                       <th>Nutritition Info</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    {product.nutrientsList.map((nutrient, idx) =>
+                                       <tr key={idx}>
+
+                                          <td>{nutrient}</td>
+                                       </tr>
+                                    )}
+                                 </tbody>
+                              </Table>
+                           </Col>
+                           <Col>
+                              <Table size="sm">
+                                 <thead>
+                                    <tr>
+                                       <th>Ingredients</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>{product.ingredients}</td>
+                                    </tr>
+                                 </tbody>
+                              </Table>
+                           </Col>
+                        </Row>
+                     </Container>
+
                   </Card.Body>
                </Accordion.Collapse>
             </Card>

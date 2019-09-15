@@ -1,16 +1,18 @@
 import t from "tcomb";
 
 export type Product = {
-  ndbNo: number;
   id: number;
   productName: string;
+  nutrientsList: string[]
+  ingredients: string
 };
 
 export const Product = t.struct(
   {
-    ndbNo: t.String,
     id: t.Number,
-    productName: t.String
+    productName: t.String,
+    nutrientsList: t.Array,
+    ingredients: t.String
   },
   {
     name: "Product"
