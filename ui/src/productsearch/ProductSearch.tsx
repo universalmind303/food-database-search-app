@@ -8,6 +8,7 @@ export type ProductSearchBaseProps = {
  };
  
 export const ProductSearchBase: React.FC<ProductSearchBaseProps> = (props: ProductSearchBaseProps) => <div>
+  Nutrition Facts Search Tool 
   <InputGroup className="mb-3">
     <FormControl
       placeholder="Search"

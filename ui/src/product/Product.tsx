@@ -2,8 +2,6 @@ import React from 'react';
 import { connectProduct } from './ProductConnector';
 import { ProductsType, } from './model';
 import { ListGroup, Accordion, Card, Table, Container, Row, Col } from 'react-bootstrap';
-import { Nutrients } from '../nutrients/Nutrients';
-import { NutrientsProvider } from '../nutrients/NutrientsProvider';
 
 export type ProductBaseProps = {
    products: ProductsType,
