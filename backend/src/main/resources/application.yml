@@ -1,5 +1,0 @@
-
-spring.datasource.url: jdbc:postgresql://database-2.cvqj69k6hydl.us-east-1.rds.amazonaws.com:5432/nutrimedy
-spring.datasource.username: postgres
-spring.datasource.password: password
-
